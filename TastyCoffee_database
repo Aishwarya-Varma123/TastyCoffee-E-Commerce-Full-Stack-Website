@@ -1,0 +1,243 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.0.45-community-nt
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema tastycoffee
+--
+
+CREATE DATABASE IF NOT EXISTS tastycoffee;
+USE tastycoffee;
+
+--
+-- Definition of table `cart`
+--
+
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE `cart` (
+  `c_id` int(10) unsigned NOT NULL auto_increment,
+  `c_name` varchar(100) default NULL,
+  `c_image` varchar(100) default NULL,
+  `quantity` int(10) default NULL,
+  `c_cost` int(10) unsigned default NULL,
+  `uname` varchar(200) default NULL,
+  `uid` int(10) unsigned default NULL,
+  `order_id` int(10) NOT NULL,
+  `status` varchar(45) NOT NULL,
+  `p_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY  (`c_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+INSERT INTO `cart` (`c_id`,`c_name`,`c_image`,`quantity`,`c_cost`,`uname`,`uid`,`order_id`,`status`,`p_id`) VALUES 
+ (1,'Breakfast Blend','packed.jpg',2,600,'Aishwarya Varma',2,1,'Canceled',1),
+ (2,'Filter Coffee Decoction','decoction1.jpeg',3,400,'Ram Kumar',12,2,'ordered',7),
+ (3,'MyEspressino Coffee Machine','equipment1.jpg',3,3000,'Ram Kumar',12,2,'ordered',10),
+ (4,'Instant Coffee Ultimate','instant2.jpg',5,220,'Ram Kumar',12,2,'ordered',5),
+ (5,'Filter Coffee Decoction','decoction1.jpeg',3,400,'Ram Kumar',13,2,'ordered',7),
+ (6,'Breakfast Blend','packed.jpg',4,600,'Ram Kumar',13,2,'ordered',1),
+ (7,'MyEspressino Coffee Machine','equipment1.jpg',5,3000,'Ram Kumar',13,2,'ordered',10),
+ (8,'Filter Coffee Decoction','decoction1.jpeg',2,400,'Aishwarya Varma',2,3,'ordered',7),
+ (9,'Moccamaster Coffee Machine','equipment2.jpg',1,2000,'Aishwarya Varma',2,3,'ordered',11),
+ (10,'Filter Coffee Decoction','decoction1.jpeg',2,400,'Aishwarya Varma',2,22,'Canceled',7),
+ (11,'Filter Coffee Decoction','decoction1.jpeg',2,400,'Aishwarya Varma B M',6,2,'ordered',7),
+ (12,'Filter Coffee Decoction','decoction1.jpeg',2,400,'Aishwarya Varma B M',6,3,'ordered',7),
+ (13,'MyEspressino Coffee Machine','equipment1.jpg',3,3000,'Soniya B S',5,4,'ordered',10),
+ (14,'Authentic Decoction','decoction2.jpeg',3,220,'Soniya B S',5,4,'ordered',8),
+ (15,'Moccamaster Coffee Machine','equipment2.jpg',3,2000,'Soniya B S',5,5,'Canceled',11),
+ (16,'Filter Coffee Decoction','decoction1.jpeg',3,400,'Soniya B S',5,8,'Canceled',7),
+ (17,'Filter Coffee Decoction','decoction1.jpeg',1,400,'Aishwarya Varma B M',7,6,'ordered',7),
+ (18,'MyEspressino Coffee Machine','equipment1.jpg',4,3000,'Aishwarya Varma B M',7,7,'ordered',10),
+ (19,'Filter Coffee Decoction','decoction1.jpeg',4,400,'Soniya ',5,8,'Canceled',7),
+ (20,'MyEspressino Coffee Machine','equipment1.jpg',3,3000,'Soniya ',5,9,'Canceled',10),
+ (21,'Filter Coffee Decoction','decoction1.jpeg',4,400,'Soniya ',5,9,'Canceled',7),
+ (22,'Filter Coffee Decoction','decoction1.jpeg',1,400,'Soniya ',5,10,'Canceled',7),
+ (23,'Filter Coffee Decoction','decoction1.jpeg',3,400,'Aishwarya',10,11,'ordered',7),
+ (24,'Filter Coffee Decoction','decoction1.jpeg',4,400,'Aishwarya',10,12,'ordered',7),
+ (25,'Filter Coffee Decoction','decoction1.jpeg',3,400,'Aishwarya',11,13,'ordered',7),
+ (26,'Filter Coffee Decoction','decoction1.jpeg',1,400,'Ram ',12,14,'ordered',7),
+ (27,'Filter Coffee Decoction','decoction1.jpeg',1,400,'Ram ',12,15,'Canceled',7),
+ (28,'MyEspressino Coffee Machine','equipment1.jpg',1,3000,'Diksha M M',3,16,'ordered',10),
+ (29,'Roasted with Love','roasted1.png',4,400,'Chandrika S R',4,17,'ordered',13),
+ (30,'Authentic Decoction','decoction2.jpeg',5,220,'Diksha M M',3,18,'ordered',8),
+ (31,'Moccamaster Coffee Machine','equipment2.jpg',6,2000,'Diksha M M',3,18,'ordered',11),
+ (32,'Filter Coffee Decoction','decoction1.jpeg',3,400,'Soniya ',5,19,'ordered',7),
+ (33,'Authentic Decoction','decoction2.jpeg',3,220,'Soniya ',5,20,'Canceled',8),
+ (34,'Filter Coffee Decoction','decoction1.jpeg',1,400,'Aishwarya',13,21,'ordered',7),
+ (35,'Breakfast Blend','packed.jpg',3,600,'Aishwarya',13,0,'deleted',1),
+ (36,'Instant Coffee Aroma','instant1.jpg',4,110,'Soniya B S',5,22,'Canceled',4),
+ (37,'Instant Coffee Aroma','instant1.jpg',4,110,'Soniya B S',5,0,'deleted',4),
+ (38,'Authentic Decoction','decoction2.jpeg',4,220,'Soniya B S',5,22,'Canceled',8),
+ (39,'Instant Coffee Aroma','instant1.jpg',3,110,'Aishwarya Varma',2,22,'Canceled',4),
+ (40,'Filter Coffee Decoction','decoction1.jpeg',5,400,'Aishwarya Varma',2,22,'Canceled',7),
+ (41,'Instant Coffee Ultimate','instant2.jpg',1,220,'Aishwarya Varma',2,22,'Canceled',5),
+ (42,'MyEspressino Coffee Machine','equipment1.jpg',1,3000,'Aishwarya Varma',2,23,'Canceled',10),
+ (43,'Breakfast Blend','packed.jpg',2,600,'Aishwarya Varma',2,24,'Delivered',1),
+ (44,'Authentic Decoction','decoction2.jpeg',2,220,'Aishwarya Varma',2,24,'Delivered',8),
+ (45,'Moccamaster Coffee Machine','equipment2.jpg',2,2000,'Aishwarya Varma',2,25,'ordered',11),
+ (46,'MyEspressino Coffee Machine','equipment1.jpg',3,3000,'Aishwarya Varma',2,0,'pending',10),
+ (47,'Special Berry','packed1.jpg',1,400,'Aishwarya Varma',2,0,'pending',2);
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+
+
+--
+-- Definition of table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `order_id` int(10) unsigned NOT NULL auto_increment,
+  `order_address` varchar(45) default NULL,
+  `order_city` varchar(45) default NULL,
+  `order_state` varchar(45) default NULL,
+  `order_pincode` int(10) unsigned NOT NULL,
+  `c_id` varchar(500) default NULL,
+  `c_cost` int(10) unsigned default NULL,
+  `usname` varchar(45) NOT NULL,
+  `status` varchar(45) default NULL,
+  `date` datetime default NULL,
+  `uid` int(10) unsigned default NULL,
+  `quantity` int(10) default NULL,
+  `p_id` varchar(500) NOT NULL,
+  PRIMARY KEY  (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` (`order_id`,`order_address`,`order_city`,`order_state`,`order_pincode`,`c_id`,`c_cost`,`usname`,`status`,`date`,`uid`,`quantity`,`p_id`) VALUES 
+ (1,'#3423/01, Vishnu Nilaya','Davanagere','Karnataka',0,'1',1200,'Aishwarya Varma','Canceled','2021-07-25 00:43:37',2,2,'1'),
+ (11,'#3423/01, Vishnu Nilaya','Davanagere','Karnataka',0,'23',1200,'Aishwarya','ordered','2021-07-30 23:26:11',10,3,'7'),
+ (15,'Malleshwaram','Bangalore','Karnataka',0,'27',400,'Ram ','Canceled','2021-07-31 00:29:38',12,1,'7'),
+ (16,'Vidya Nagar','Davanagere','Karnataka',0,'28',3000,'Diksha M M','ordered','2021-07-31 00:30:35',3,1,'10'),
+ (17,'PB Road','Davanagere','Karnataka',0,'29',1600,'Chandrika S R','ordered','2021-07-31 00:31:39',4,4,'13'),
+ (18,'Mandipet','Davanagere','Karnataka',0,'30,31',13100,'Diksha M M','ordered','2021-07-31 00:46:29',3,5,'8,11'),
+ (19,'#3423/01, Vishnu Nilaya','Davanagere','Karnataka',0,'32',1200,'Soniya ','ordered','2021-07-31 10:39:09',5,3,'7'),
+ (21,'#3423/01, Vishnu Nilaya','Davanagere','Karnataka',0,'34',400,'Aishwarya','ordered','2021-07-31 10:49:14',13,1,'7'),
+ (22,'#3423/01, Vishnu Nilaya','Davanagere','Karnataka',577006,'10,39,40,41',3350,'Aishwarya Varma','Canceled','2021-08-01 23:47:46',2,2,'7,4,7,5'),
+ (23,'#3423/01, Vishnu Nilaya','Davanagere','Karnataka',577006,'42',3000,'Aishwarya Varma','Canceled','2021-08-02 00:16:25',2,1,'10'),
+ (24,'#3423/01, Vishnu Nilaya','Davanagere','Karnataka',577006,'43,44',1640,'Aishwarya Varma','Delivered','2021-08-02 01:23:26',2,2,'1,8'),
+ (25,'#3423/01, Vishnu Nilaya','Davanagere','Karnataka',577006,'45',4000,'Aishwarya Varma','ordered','2021-08-04 16:48:13',2,2,'11');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+
+
+--
+-- Definition of table `passwordtrack`
+--
+
+DROP TABLE IF EXISTS `passwordtrack`;
+CREATE TABLE `passwordtrack` (
+  `slno` int(10) unsigned NOT NULL auto_increment,
+  `id` int(10) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `date` datetime default NULL,
+  PRIMARY KEY  (`slno`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `passwordtrack`
+--
+
+/*!40000 ALTER TABLE `passwordtrack` DISABLE KEYS */;
+INSERT INTO `passwordtrack` (`slno`,`id`,`name`,`email`,`password`,`date`) VALUES 
+ (34,13,'Aishwarya','aishwaryavarma18112000@gmail.com','123456','2021-07-31 10:48:03');
+/*!40000 ALTER TABLE `passwordtrack` ENABLE KEYS */;
+
+
+--
+-- Definition of table `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE `products` (
+  `p_id` int(10) NOT NULL auto_increment,
+  `p_image` varchar(100) default NULL,
+  `p_name` varchar(100) default NULL,
+  `p_cost` int(10) default NULL,
+  `p_catagory` varchar(100) default NULL,
+  `p_details` varchar(500) default NULL,
+  PRIMARY KEY  (`p_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` (`p_id`,`p_image`,`p_name`,`p_cost`,`p_catagory`,`p_details`) VALUES 
+ (1,'packed.jpg','Breakfast Blend',600,'packed','Blended for the Indian breakfast palate and the patrons of the classic and can be enjoyed during your breakfast..'),
+ (2,'packed1.jpg','Special Berry',400,'packed','The Special Berry coffee powder is\r\nprepared from the best quality coffee\r\nbeans which are handpicked with care.'),
+ (3,'packed2.jfif','House Blend',500,'packed','The best that Western Ghats of South India has to offer, roasted and ground using state-of-the-art technology.'),
+ (4,'instant1.jpg','Instant Coffee Aroma',110,'instant','The Aroma Classic makes an aromatic and strong cup of coffee which is well suited for the classic Indian palate. A 70:30 blend of handpicked coffee beans from the Western Ghats and fine ground chicory.'),
+ (5,'instant2.jpg','Instant Coffee Ultimate',220,'instant','The TastyCoffee Ultimate Instant Coffee makes a smooth and invigorating cup and can be enjoyed anytime during the day.'),
+ (6,'instant3.jpg','Instant Coffee Blend',300,'instant','The best of instant coffee worlds. If you enjoy both the classic Indian blend and the purist’s choice, the Instant Coffee Blend is just for you.'),
+ (7,'decoction1.jpeg','Filter Coffee Decoction',400,'decoction','All the goodness of TastyCoffee’s authentic aroma and flavour without the hassle of brewing. Just mix the decoction with hot milk, add sugar if needed and enjoy TastyCoffee’s signature cup of filter coffee in an instant.'),
+ (8,'decoction2.jpeg','Authentic Decoction',220,'decoction','All the goodness of TastyCoffee’s authentic aroma and flavour without the hassle of brewing. Just mix the decoction with hot milk, add sugar if needed and enjoy TastyCoffee’s signature cup of filter coffee in an instant.'),
+ (9,'decoction3.jpg','Decoction Blend',300,'decoction','All the goodness of TastyCoffee’s authentic aroma and flavour without the hassle of brewing. Just mix the decoction with hot milk, add sugar if needed and enjoy TastyCoffee’s signature cup of filter coffee in an instant.'),
+ (10,'equipment1.jpg','MyEspressino Coffee Machine',3000,'equipment','The MyEspressino Coffee Machine is the perfect tool for easy coffee-making. Have cafe-style cappuccino or espresso at home with this simple device.'),
+ (11,'equipment2.jpg','Moccamaster Coffee Machine',2000,'equipment','Brewing instant coffee at home is now possible with the Moccamaster Coffee Machine. This Italian-made machine will help you brew the perfect cup of espresso with ease.'),
+ (12,'equipment3.jpg','Hand Grinder',5000,'equipment','A manual coffee grinder designed for precise processing with patented point to point coarseness adjuster.'),
+ (13,'roasted1.png','Roasted with Love',400,'roasted','Roasted for the Indian supper palate and the patrons of the classic and can be enjoyed during your supper.. The TastyCoffee Ultimate Roasted Coffee makes a smooth and invigorating cup and can be enjoyed anytime during the day.'),
+ (19,'equipment4.jpg','Two Cup Coffee Maker',4000,'equipment','Time Saver, Easy handler.');
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+
+
+--
+-- Definition of table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `slno` int(100) NOT NULL auto_increment,
+  `name` varchar(50) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `date` datetime default NULL,
+  PRIMARY KEY  (`slno`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`slno`,`name`,`phone`,`email`,`password`,`date`) VALUES 
+ (1,'admin','1234567890','admin@gmail.com','admin1','2021-07-09 11:52:03'),
+ (2,'Aishwarya Varma','9901944611','aishwaryavarma26@gmail.com','123456','2021-07-09 23:44:44'),
+ (3,'Diksha M M','9035108213','diksha@gmail.com','123456','2021-07-10 00:13:42'),
+ (4,'Chandrika S R','9909907878','chandrika@gmail.com','123456','2021-07-10 00:13:43'),
+ (5,'Soniya B S','9907867788','soniyabs@gmail.com','123456','2021-07-10 00:13:45'),
+ (13,'Aishwarya','9901943611','aishwaryavarma18112000@gmail.com','123456','2021-07-31 10:47:12');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
